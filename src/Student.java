@@ -6,11 +6,19 @@ public class Student {
     }
 
     public void addAssignmentScore(double as) {
-
+        assignmentScores.add(as);
     }
 
     public void addExamScore(double es) {
+        examScores.add(es);
+    }
 
+    public Iterable<Double> getAssignmentScores() {
+        return assignmentScores;
+    }
+
+    public Iterable<Double> getExamsScores() {
+        return examScores;
     }
 
     private ArrayList<Double> assignmentScores = new ArrayList<>();
