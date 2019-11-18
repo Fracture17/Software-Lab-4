@@ -39,7 +39,7 @@ class WeightedAverageCalculatorTest {
         examScores.sort(Double::compareTo);
     }
 
-    private Student student;
-    private ArrayList<Double> examScores;
-    private ArrayList<Double> assignmentScores;
+    protected Student student;
+    protected ArrayList<Double> examScores;
+    protected ArrayList<Double> assignmentScores;
 }
