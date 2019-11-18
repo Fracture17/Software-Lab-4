@@ -21,7 +21,7 @@ public class WeightedAverageCalculator implements AverageCalculator {
         return assigmentAverage * ASSIGNMENT_WEIGHT + examAverage * EXAM_WEIGHT;
     }
 
-    private double computeAssignmentAverage(ArrayList<Double> assignmentScores) {
+    protected double computeAssignmentAverage(ArrayList<Double> assignmentScores) {
         double assignmentTotal = sum(assignmentScores);
         double assigmentAverage = assignmentTotal / assignmentScores.size();
         return assigmentAverage;
