@@ -9,16 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class StudentTest {
-    public void assertStudentAssignmentScoresAreCorrect(Student student,
-                                                            ArrayList<Double> assignmentScores) {
-        ArrayList<Double> studentScores = new ArrayList<>();
-        for(Double x: student.getAssignmentScores()) {
-            studentScores.add(x);
-        }
-        studentScores.sort(Double::compareTo);
-        assertArrayEquals(studentScores.toArray(), assignmentScores.toArray());
-    }
-
     @Test
     public void test_assignmentsCanBeAddedAndRetrieved() {
         ArrayList<Double> assignmentScores = new ArrayList<>();
@@ -36,30 +26,39 @@ class StudentTest {
         assertStudentAssignmentScoresAreCorrect(student, assignmentScores);
     }
 
-    public void assertStudentExamScoresAreCorrect(Student student,
-                                                        ArrayList<Double> examScore) {
-        ArrayList<Double> studentScores = new ArrayList<>();
-        for(Double x: student.getExamsScores()) {
-            studentScores.add(x);
-        }
-        studentScores.sort(Double::compareTo);
-        assertArrayEquals(studentScores.toArray(), examScore.toArray());
+    public void assertStudentAssignmentScoresAreCorrect(Student student,
+                                                        ArrayList<Double> assignmentScores) {
+        assertScoresAreCorrect(student.getAssignmentScores(), assignmentScores);
     }
 
     @Test
     public void test_examsCanBeAddedAndRetrieved() {
-        ArrayList<Double> assignmentScores = new ArrayList<>();
-        assignmentScores.add(21.0);
-        assignmentScores.add(10.1);
+        ArrayList<Double> examScores = new ArrayList<>();
+        examScores.add(21.0);
+        examScores.add(10.1);
 
-        assignmentScores.sort(Double::compareTo);
+        examScores.sort(Double::compareTo);
 
         Student student = new Student("test");
 
-        for(Double x: assignmentScores) {
+        for(Double x: examScores) {
             student.addExamScore(x);
         }
 
-        assertStudentExamScoresAreCorrect(student, assignmentScores);
+        assertStudentExamScoresAreCorrect(student, examScores);
+    }
+
+    public void assertStudentExamScoresAreCorrect(Student student,
+                                                  ArrayList<Double> examScores) {
+        assertScoresAreCorrect(student.getExamsScores(), examScores);
+    }
+
+    public void assertScoresAreCorrect(Iterable<Double> studentScores, ArrayList<Double> expectedScores) {
+        ArrayList<Double> studentScoreList = new ArrayList<>();
+        for(Double x: studentScores) {
+            studentScoreList.add(x);
+        }
+        studentScoreList.sort(Double::compareTo);
+        assertArrayEquals(studentScoreList.toArray(), expectedScores.toArray());
     }
 }
