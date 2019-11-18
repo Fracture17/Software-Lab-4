@@ -15,20 +15,30 @@ public class WeightedAverageCalculator implements AverageCalculator {
     }
 
     private double calc(ArrayList<Double> assignmentScores, ArrayList<Double> examScores) {
+        double assigmentAverage = computeAssignmentAverage(assignmentScores);
+        double examAverage = computeExamAverage(examScores);
+
+        return assigmentAverage * ASSIGNMENT_WEIGHT + examAverage * EXAM_WEIGHT;
+    }
+
+    private double computeAssignmentAverage(ArrayList<Double> assignmentScores) {
         double assignmentTotal = 0;
         for(Double x: assignmentScores) {
             assignmentTotal += x;
         }
 
+        double assigmentAverage = assignmentTotal / assignmentScores.size();
+        return assigmentAverage;
+    }
+
+    private double computeExamAverage(ArrayList<Double> examScores) {
         double examTotal = 0;
         for(Double x: examScores) {
             examTotal += x;
         }
 
-        double assigmentAverage = assignmentTotal / assignmentScores.size();
         double examAverage = examTotal / examScores.size();
-
-        return assigmentAverage * ASSIGNMENT_WEIGHT + examAverage * EXAM_WEIGHT;
+        return examAverage;
     }
 
     private static final double ASSIGNMENT_WEIGHT = .4;
