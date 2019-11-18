@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Student {
     public Student(String name) {
-
+        this.name = name;
     }
 
     public void addAssignmentScore(double as) {
