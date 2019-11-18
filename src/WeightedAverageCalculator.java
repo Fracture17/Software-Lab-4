@@ -22,23 +22,24 @@ public class WeightedAverageCalculator implements AverageCalculator {
     }
 
     private double computeAssignmentAverage(ArrayList<Double> assignmentScores) {
-        double assignmentTotal = 0;
-        for(Double x: assignmentScores) {
-            assignmentTotal += x;
-        }
-
+        double assignmentTotal = sum(assignmentScores);
         double assigmentAverage = assignmentTotal / assignmentScores.size();
         return assigmentAverage;
     }
 
     private double computeExamAverage(ArrayList<Double> examScores) {
-        double examTotal = 0;
-        for(Double x: examScores) {
-            examTotal += x;
-        }
-
+        double examTotal = sum(examScores);
         double examAverage = examTotal / examScores.size();
         return examAverage;
+    }
+
+    private double sum(ArrayList<Double> list) {
+        double total = 0;
+        for(Double x: list) {
+            total += x;
+        }
+
+        return total;
     }
 
     private static final double ASSIGNMENT_WEIGHT = .4;
