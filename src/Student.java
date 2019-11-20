@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.Observable;
 
-public class Student extends Observable {
+public class Student {
     public Student(String name) {
         this.name = name;
     }
