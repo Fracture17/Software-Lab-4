@@ -21,6 +21,10 @@ public class Student {
         return examScores;
     }
 
+    public double calcClassAverage(AverageCalculator calculator) {
+        return calculator.calc(getAssignmentScores(), getExamsScores());
+    }
+
     private ArrayList<Double> assignmentScores = new ArrayList<>();
     private ArrayList<Double> examScores = new ArrayList<>();
     private String name;
