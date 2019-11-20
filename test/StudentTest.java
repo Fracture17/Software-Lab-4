@@ -61,4 +61,33 @@ class StudentTest {
         studentScoreList.sort(Double::compareTo);
         assertArrayEquals(studentScoreList.toArray(), expectedScores.toArray());
     }
+
+    @Test void test_averageIsCorrectUsingDifferentMethods() {
+        Student student = new Student("test");
+
+        ArrayList<Double> examScores = new ArrayList<>();
+        examScores.add(17.9);
+        examScores.add(33.3);
+
+        for(Double x: examScores) {
+            student.addExamScore(x);
+        }
+
+        ArrayList<Double> assignmentScores = new ArrayList<>();
+        assignmentScores.add(94.8);
+        assignmentScores.add(63.7);
+        assignmentScores.add(55.0);
+
+        for(Double x: assignmentScores) {
+            student.addAssignmentScore(x);
+        }
+
+        WeightedAverageCalculator calculator = new WeightedAverageCalculator();
+        assertEquals(43.83, student.calcClassAverage(calculator), .01);
+
+        CurvedWeightedAverageCalculator curvedCalculator = new CurvedWeightedAverageCalculator();
+        assertEquals(47.06, student.calcClassAverage(curvedCalculator), .01);
+
+        assertEquals(43.83, student.calcClassAverage(calculator), .01);
+    }
 }
