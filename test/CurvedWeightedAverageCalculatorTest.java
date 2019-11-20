@@ -1,8 +1,8 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class CurvedWeightedAverageCalculatorTest extends WeightedAverageCalculatorTest{
+public class CurvedWeightedAverageCalculatorTest extends WeightedAverageCalculatorTest{
     @Test
     public void test_correctlyCalculatesAverage() {
         addExamScores(21.0, 10.1);

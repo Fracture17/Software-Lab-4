@@ -1,12 +1,12 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class WeightedAverageCalculatorTest {
-    @BeforeEach
+public class WeightedAverageCalculatorTest {
+    @Before
     public void setup() {
         student = new Student("test");
         examScores = new ArrayList<>();
@@ -20,7 +20,7 @@ class WeightedAverageCalculatorTest {
         addAssignmentScores(18.9, 54.2);
 
         WeightedAverageCalculator calculator = new WeightedAverageCalculator();
-        assertEquals(23.95, calculator.calc(student.getAssignmentScores(), student.getExamsScores()));
+        assertEquals(23.95, calculator.calc(student.getAssignmentScores(), student.getExamsScores()), 0.01);
     }
 
     public void addAssignmentScores(double... scores) {

@@ -1,5 +1,5 @@
 import org.junit.Assert.*;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Collections;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class StudentTest {
+public class StudentTest {
     @Test
     public void test_assignmentsCanBeAddedAndRetrieved() {
         ArrayList<Double> assignmentScores = new ArrayList<>();
@@ -62,7 +62,8 @@ class StudentTest {
         assertArrayEquals(studentScoreList.toArray(), expectedScores.toArray());
     }
 
-    @Test void test_averageIsCorrectUsingDifferentMethods() {
+    @Test
+    public void test_averageIsCorrectUsingDifferentMethods() {
         Student student = new Student("test");
 
         ArrayList<Double> examScores = new ArrayList<>();
