@@ -16,7 +16,7 @@ public class GradeTracker implements Observer {
 
     @Override
     public void update(Observable observable, Object o) {
-        Student student = (Student) o;
+        Student student = (Student) observable;
         double newScore = student.calcClassAverage(calculator);
         updateLetterGrade(newScore);
     }
