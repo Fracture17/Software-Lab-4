@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class Roster {
     public Roster(String name, String number) {
@@ -12,6 +13,10 @@ public class Roster {
 
     public void addStudent(Student student) {
         students.add(student);
+    }
+
+    public ListIterator<Student> getStudents() {
+        return students.listIterator();
     }
 
     private String courseName;
