@@ -17,6 +17,10 @@ public class GradeTracker implements Observer {
     public void update(Observable observable, Object o) {
         Student student = (Student) o;
         double newScore = student.calcClassAverage(calculator);
+        updateLetterGrade(newScore);
+    }
+
+    private void updateLetterGrade(double newScore) {
         if(newScore >= 90) {
             letterGrade = "A";
         }
