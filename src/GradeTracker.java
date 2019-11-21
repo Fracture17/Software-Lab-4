@@ -29,10 +29,10 @@ public class GradeTracker implements Observer {
             letterGrade = "B";
         }
         else if(newScore >= 70) {
-            letterGrade = "B";
+            letterGrade = "C";
         }
         else if(newScore >= 60) {
-            letterGrade = "B";
+            letterGrade = "D";
         }
         else {
             letterGrade = "F";
