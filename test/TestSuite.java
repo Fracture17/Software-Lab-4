@@ -6,7 +6,8 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         CurvedWeightedAverageCalculatorTest.class,
         WeightedAverageCalculatorTest.class,
-        StudentTest.class
+        StudentTest.class,
+        GradeTrackerTest.class
 })
 
 public final class TestSuite {
