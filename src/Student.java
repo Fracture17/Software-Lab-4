@@ -8,10 +8,14 @@ public class Student extends Observable {
 
     public void addAssignmentScore(double as) {
         assignmentScores.add(as);
+        setChanged();
+        notifyObservers();
     }
 
     public void addExamScore(double es) {
         examScores.add(es);
+        setChanged();
+        notifyObservers();
     }
 
     public Iterable<Double> getAssignmentScores() {
