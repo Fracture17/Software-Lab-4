@@ -30,6 +30,10 @@ public class Student extends Observable {
         return calculator.calc(getAssignmentScores(), getExamsScores());
     }
 
+    public String getName() {
+        return name;
+    }
+
     private ArrayList<Double> assignmentScores = new ArrayList<>();
     private ArrayList<Double> examScores = new ArrayList<>();
     private String name;
