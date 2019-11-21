@@ -7,6 +7,7 @@ public class GradeTracker implements Observer {
     public GradeTracker(Student student, AverageCalculator calculator) {
         this.calculator = calculator;
         student.addObserver(this);
+        updateLetterGrade(student.calcClassAverage(calculator));
     }
 
     public String getLetterGrade() {
