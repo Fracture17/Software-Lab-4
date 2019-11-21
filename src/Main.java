@@ -2,30 +2,14 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        showCalculators();
+    }
+
+    public static void showCalculators() {
         Student student = new Student("test");
 
-        ArrayList<Double> examScores = new ArrayList<>();
-        examScores.add(17.9);
-        examScores.add(33.3);
-
-        System.out.print("Exam Scores: ");
-        for(Double x: examScores) {
-            System.out.print(x + ", ");
-            student.addExamScore(x);
-        }
-        System.out.println();
-
-        ArrayList<Double> assignmentScores = new ArrayList<>();
-        assignmentScores.add(94.8);
-        assignmentScores.add(63.7);
-        assignmentScores.add(55.0);
-
-        System.out.print("Assignment Scores: ");
-        for(Double x: assignmentScores) {
-            System.out.print(x + ", ");
-            student.addAssignmentScore(x);
-        }
-        System.out.println();
+        addExamScores(student, 17.9, 33.3);
+        addAssignmentScores(student, 94.8, 63.7, 55.0);
 
         WeightedAverageCalculator calculator = new WeightedAverageCalculator();
         System.out.println("Method A expected: " + 43.826);
@@ -37,5 +21,23 @@ public class Main {
 
         System.out.println("Method A expected: " + 43.826);
         System.out.println("Method A actual: " + student.calcClassAverage(calculator));
+    }
+
+    public static void addExamScores(Student student, double... scores) {
+        System.out.print("Exam Scores: ");
+        for(Double x: scores) {
+            System.out.print(x + ", ");
+            student.addExamScore(x);
+        }
+        System.out.println();
+    }
+
+    public static void addAssignmentScores(Student student, double... scores) {
+        System.out.print("Assignment Scores: ");
+        for(Double x: scores) {
+            System.out.print(x + ", ");
+            student.addAssignmentScore(x);
+        }
+        System.out.println();
     }
 }
