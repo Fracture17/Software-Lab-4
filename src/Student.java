@@ -1,8 +1,9 @@
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class Student {
+public class Student extends Observable {
     public Student(String name) {
         this.name = name;
     }
