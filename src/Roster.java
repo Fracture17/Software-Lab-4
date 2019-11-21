@@ -14,7 +14,7 @@ public class Roster {
         students.add(student);
     }
 
-    String courseName;
-    String courseNumber;
-    ArrayList<Student> students = new ArrayList<>();
+    private String courseName;
+    private String courseNumber;
+    private ArrayList<Student> students = new ArrayList<>();
 }
