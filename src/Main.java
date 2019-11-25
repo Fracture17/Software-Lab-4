@@ -6,6 +6,9 @@ public class Main {
         System.out.println();
 
         showTracker();
+        System.out.println();
+
+        showIterator();
     }
 
     public static void showCalculators() {
@@ -43,6 +46,33 @@ public class Main {
         System.out.println("New score: " + student.calcClassAverage(new WeightedAverageCalculator()));
         System.out.println("Tracker expected: D");
         System.out.println("Tracker actual: " + tracker.getLetterGrade());
+    }
+
+    public static void showIterator() {
+        System.out.println("Student 1:");
+        Student student = new Student("test");
+
+        addExamScores(student, 50.9, 33.3);
+        addAssignmentScores(student, 94.8, 63.7, 50.0);
+
+        System.out.println("Student 2");
+        Student student2 = new Student("test2");
+
+        addExamScores(student2, 17.9, 33.3);
+        addAssignmentScores(student2, 94.8, 63.7, 55.0);
+
+
+        Roster roster = new Roster("test roster", "1");
+
+        roster.addStudent(student);
+        roster.addStudent(student2);
+
+        System.out.println("Student Averages:");
+        WeightedAverageCalculator calculator = new WeightedAverageCalculator();
+        for (AvgDispenser it = roster.getAverages(calculator); it.hasNext(); ) {
+            Double score = (Double) it.next();
+            System.out.println(score);
+        }
     }
 
     public static void addExamScores(Student student, double... scores) {
