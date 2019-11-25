@@ -15,8 +15,8 @@ public class Roster {
         students.add(student);
     }
 
-    public ListIterator<Student> getStudents() {
-        return students.listIterator();
+    public AvgDispenser getAverages(AverageCalculator calculator) {
+        return new AvgDispenser(students.iterator(), calculator);
     }
 
     private String courseName;
